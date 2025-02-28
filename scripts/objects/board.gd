@@ -33,8 +33,7 @@ func move(delta: float, direction: int):
 	position.x = fit_to_screen(position.x)
 
 func fit_to_screen(x: int) -> int:
-	x = min(x, screen_width - width / 2)
-	x = max(x, width / 2)
+	x = clamp(x, 96 + width / 2, screen_width - width / 2)
 	return x
 
 func _on_body_entered(body: Ball) -> void:
