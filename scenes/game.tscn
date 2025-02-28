@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckbc5nu0asr8v"]
+
+[ext_resource type="PackedScene" uid="uid://7iej74k7v3o0" path="res://scenes/levels/level_1.tscn" id="1_6bvso"]
+[ext_resource type="PackedScene" uid="uid://jymrix732t4s" path="res://scenes/objects/ball.tscn" id="2_bodub"]
+[ext_resource type="PackedScene" uid="uid://dxkrjbtdn14uu" path="res://scenes/objects/board.tscn" id="3_ms454"]
+[ext_resource type="PackedScene" uid="uid://cg658sikrrp2c" path="res://scenes/objects/wall.tscn" id="4_gwypq"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Background" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+layout_mode = 0
+offset_left = 96.0
+offset_right = 480.0
+offset_bottom = 400.0
+color = Color(0.878431, 0.878431, 0.862745, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Background"]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 400.0
+color = Color(0.329158, 0.329158, 0.329158, 1)
+
+[node name="Ball" parent="." instance=ExtResource("2_bodub")]
+position = Vector2(288, 368)
+
+[node name="Board" parent="." instance=ExtResource("3_ms454")]
+position = Vector2(288, 384)
+
+[node name="WallTop" parent="." instance=ExtResource("4_gwypq")]
+position = Vector2(288, -3.35703e-05)
+rotation = 1.5708
+
+[node name="WallLeft" parent="." instance=ExtResource("4_gwypq")]
+position = Vector2(96, 0)
+
+[node name="WallRight" parent="." instance=ExtResource("4_gwypq")]
+position = Vector2(480, 0)
+rotation = -3.14159
+
+[node name="Level1" parent="." instance=ExtResource("1_6bvso")]
+position = Vector2(96, 0)
