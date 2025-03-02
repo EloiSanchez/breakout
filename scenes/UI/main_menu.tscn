@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=3 uid="uid://b25c10dvmxuk2"]
+
+[ext_resource type="Theme" uid="uid://d1wioiylhv7id" path="res://Resources/themes/custom_theme.tres" id="1_7ql4g"]
+[ext_resource type="Script" path="res://scripts/UI/main_menu.gd" id="2_57hpa"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_7ql4g")
+script = ExtResource("2_57hpa")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VSplitContainer" type="VSplitContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+dragger_visibility = 1
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/VSplitContainer"]
+layout_mode = 2
+text = "Breakout"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VSplitContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="VSplitContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VSplitContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer/VSplitContainer/MarginContainer/VSplitContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="SelectLevelButton" type="Button" parent="MarginContainer/VBoxContainer/VSplitContainer/MarginContainer/VSplitContainer"]
+layout_mode = 2
+text = "Select Level"
+
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/VSplitContainer/MarginContainer/VSplitContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="button_up" from="MarginContainer/VBoxContainer/VSplitContainer/MarginContainer/VSplitContainer/StartButton" to="." method="_on_start_button_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/VSplitContainer/MarginContainer/VSplitContainer/SelectLevelButton" to="." method="_on_select_level_button_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/VSplitContainer/MarginContainer/VSplitContainer/QuitButton" to="." method="_on_quit_button_button_up"]
