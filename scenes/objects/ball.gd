@@ -43,7 +43,10 @@ func handle_collisions(collisions: KinematicCollision2D) -> void:
 func increase_speed() -> void:
 	velocity = velocity.normalized() * min(velocity.length() * velocity_increase, max_velocity)
 
-func _on_start_timer_timeout() -> void:
+#func _on_start_timer_timeout() -> void:
+	#set_physics_process(true)
+	
+func start_moving():
 	set_physics_process(true)
 
 func _remove_ball() -> void:

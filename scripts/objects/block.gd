@@ -1,6 +1,8 @@
 class_name Block
 extends StaticBody2D
 
+signal destroyed
+
 @export var color_sprite: Texture2D
 @export_range(1, 4, 1) var max_health: int
 var health: int
@@ -33,15 +35,18 @@ func take_damage() -> void:
 	animated_sprite.play(str(max_health - health))
 		
 	hit_particles.emitting = true
-	#queue_free()
 
 func disappear():
 	destroyed_particles.emitting = true
-	#get_tree().root.add_child(t)
+	
+	remove_from_group("blocks")
+	
 	sprite.queue_free()
 	hit_particles.queue_free()
 	animated_sprite.queue_free()
 	collision_shape.queue_free()
+	destroyed.emit()
+	
 	
 
 func _on_destroyed_particles_finished() -> void:

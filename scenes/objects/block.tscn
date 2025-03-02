@@ -54,7 +54,7 @@ animations = [{
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[node name="Block" type="StaticBody2D"]
+[node name="Block" type="StaticBody2D" groups=["blocks"]]
 script = ExtResource("1_hq8iy")
 metadata/_edit_group_ = true
 

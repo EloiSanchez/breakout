@@ -1,18 +1,79 @@
-[gd_scene load_steps=8 format=3 uid="uid://ckbc5nu0asr8v"]
+[gd_scene load_steps=11 format=3 uid="uid://ckbc5nu0asr8v"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_nsyc0"]
 [ext_resource type="PackedScene" uid="uid://jymrix732t4s" path="res://scenes/objects/ball.tscn" id="2_bodub"]
 [ext_resource type="PackedScene" uid="uid://dxkrjbtdn14uu" path="res://scenes/objects/board.tscn" id="3_ms454"]
 [ext_resource type="PackedScene" uid="uid://cg658sikrrp2c" path="res://scenes/objects/wall.tscn" id="4_gwypq"]
-[ext_resource type="Theme" uid="uid://d0kk8b5baija1" path="res://Resources/themes/custom_theme.tres" id="5_eb8sr"]
-[ext_resource type="Script" path="res://scripts/UI/level_label.gd" id="6_lv5wp"]
+[ext_resource type="Theme" uid="uid://d1wioiylhv7id" path="res://resources/themes/custom_theme.tres" id="5_eb8sr"]
+[ext_resource type="Script" path="res://scripts/UI/lifes_lavel.gd" id="6_lv5wp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8edrn"]
 size = Vector2(384, 18)
 
+[sub_resource type="Animation" id="Animation_ap7u5"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_5f4q0"]
+resource_name = "start_game"
+length = 3.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"update_text_labels"
+}, {
+"args": [],
+"method": &"start_moving_balls"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/Control/LevelLabel")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.00284782, 2.03333),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"show"
+}, {
+"args": [],
+"method": &"hide"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"load_level"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dm3vd"]
+_data = {
+"RESET": SubResource("Animation_ap7u5"),
+"start_game": SubResource("Animation_5f4q0")
+}
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_nsyc0")
-level_number = 2
+level_number = 0
 
 [node name="Background" type="Control" parent="."]
 layout_mode = 3
@@ -56,6 +117,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 96.0
 offset_bottom = 400.0
+theme = ExtResource("5_eb8sr")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI"]
 layout_mode = 0
@@ -69,17 +131,40 @@ theme_override_constants/margin_bottom = 5
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
 layout_mode = 2
 
-[node name="LevelLabel" type="Label" parent="UI/MarginContainer/VBoxContainer" node_paths=PackedStringArray("game")]
+[node name="LevelLabel" type="Label" parent="UI/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("5_eb8sr")
 text = "Level X"
+
+[node name="LifesLabel" type="Label" parent="UI/MarginContainer/VBoxContainer" node_paths=PackedStringArray("game")]
+layout_mode = 2
+text = "Lifes: X"
 script = ExtResource("6_lv5wp")
 game = NodePath("../../../..")
 
-[node name="LifesLabel" type="Label" parent="UI/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("5_eb8sr")
-text = "Lifes: X"
+[node name="Control" type="Control" parent="UI"]
+anchors_preset = 0
+offset_left = 96.0
+offset_right = 480.0
+offset_bottom = 392.0
+
+[node name="LevelLabel" type="Label" parent="UI/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -12.5
+offset_right = 37.5
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.611765, 0.552941, 0.760784, 1)
+theme_override_font_sizes/font_size = 40
+text = "Level X"
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(96, 424)
@@ -87,6 +172,11 @@ position = Vector2(96, 424)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(192, -1)
 shape = SubResource("RectangleShape2D_8edrn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dm3vd")
+}
 
 [connection signal="life_lost" from="." to="UI/MarginContainer/VBoxContainer/LevelLabel" method="_on_game_life_lost"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
