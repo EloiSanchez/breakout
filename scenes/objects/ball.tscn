@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ssrvo"]
 size = Vector2(12, 12)
 
-[node name="Ball" type="RigidBody2D"]
+[node name="Ball" type="RigidBody2D" groups=["balls"]]
 gravity_scale = 0.0
 script = ExtResource("1_ropwv")
 
@@ -15,3 +15,8 @@ shape = SubResource("RectangleShape2D_ssrvo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_k6u2l")
+
+[node name="StartTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

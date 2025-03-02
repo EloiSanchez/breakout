@@ -1,12 +1,9 @@
 class_name Board
 extends Area2D
 
-signal ball_collision(source_position: Vector2)
-
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var collision: CollisionShape2D = $CollisionShape2D
 @onready var trajectory_source: Marker2D = $TrajectorySource
-
 
 const SPEED = 300.0
 var width: int
@@ -36,5 +33,5 @@ func fit_to_screen(x: int) -> int:
 	x = clamp(x, 96 + width / 2, screen_width - width / 2)
 	return x
 
-func _on_body_entered(body: Ball) -> void:
-	ball_collision.emit(trajectory_source.global_position)
+func _on_body_entered(ball: Ball) -> void:
+	ball._on_board_collision(trajectory_source.global_position)
