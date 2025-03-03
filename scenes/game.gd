@@ -22,11 +22,15 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func spawn_ball():
+func spawn_ball(start_moving: bool = false, start_timer: bool = false):
 	print("Instantiating ball")
 	var ball_instance: Ball = ball.instantiate()
 	ball_instance.position = ball_spawn.global_position
 	add_child(ball_instance)
+	if start_moving:
+		ball_instance.start_moving()
+	elif start_timer:
+		ball_instance.start_timer.call_deferred("start")
 
 func load_level() -> void:
 	get_tree().call_group("balls", "queue_free")
@@ -75,7 +79,7 @@ func lose_life():
 	if lifes == 0:
 		end_game()
 	else:
-		spawn_ball()
+		spawn_ball(false, true)
 		
 func end_game():
 	pass

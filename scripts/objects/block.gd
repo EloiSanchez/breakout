@@ -1,3 +1,4 @@
+@tool
 class_name Block
 extends StaticBody2D
 
@@ -17,11 +18,6 @@ var health: int
 func _ready() -> void:
 	sprite.texture = color_sprite
 	health = max_health
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func _on_ball_collision():
 	take_damage()

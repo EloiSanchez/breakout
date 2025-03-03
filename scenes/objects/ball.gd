@@ -14,7 +14,6 @@ func _ready() -> void:
 	velocity.x = randi_range(-20, 20)
 	if not enable_movement:
 		set_physics_process(enable_movement)
-		start_timer.start()
 		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -43,8 +42,8 @@ func handle_collisions(collisions: KinematicCollision2D) -> void:
 func increase_speed() -> void:
 	velocity = velocity.normalized() * min(velocity.length() * velocity_increase, max_velocity)
 
-#func _on_start_timer_timeout() -> void:
-	#set_physics_process(true)
+func _on_start_timer_timeout() -> void:
+	start_moving()
 	
 func start_moving():
 	set_physics_process(true)
