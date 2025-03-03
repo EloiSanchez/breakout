@@ -5,11 +5,23 @@ extends Area2D
 @onready var collision: CollisionShape2D = $CollisionShape2D
 @onready var trajectory_source: Marker2D = $TrajectorySource
 
+var textures: Array[CompressedTexture2D] = [
+	load("res://assets/art/board/board-1.png"), 
+	load("res://assets/art/board/board-2.png")
+]
+
 const SPEED = 300.0
+var board_size_level: int = 1
 var width: int
 var screen_width: int
+@onready var size_level: int:
+	set(value):
+		size_level = clamp(value, 0, 1)
+		sprite.texture = textures[size_level]
+		collision.shape.size.x = sprite.texture.get_width()
 
 func _ready() -> void:
+	size_level = 0
 	width = sprite.texture.get_width()
 	screen_width = get_viewport_rect().size.x
 
@@ -35,3 +47,9 @@ func fit_to_screen(x: int) -> int:
 
 func _on_body_entered(ball: Ball) -> void:
 	ball._on_board_collision(trajectory_source.global_position)
+
+func increase_size():
+	size_level += 1
+
+func decrease_size():
+	size_level -= 1

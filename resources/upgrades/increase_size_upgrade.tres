@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="IncreaseSizeUpgrade" load_steps=3 format=3 uid="uid://8meomhvvk0r1"]
+
+[ext_resource type="Script" path="res://utils/upgrades/increase_size_upgrade.gd" id="1_ivysg"]
+[ext_resource type="Texture2D" uid="uid://dur0x8j1f0ypt" path="res://assets/art/upgrades/increase-sizel-upgrade.png" id="2_s7ldd"]
+
+[resource]
+script = ExtResource("1_ivysg")
+texture = ExtResource("2_s7ldd")

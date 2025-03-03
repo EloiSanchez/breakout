@@ -73,7 +73,6 @@ _data = {
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_nsyc0")
-level_number = 0
 
 [node name="Background" type="Control" parent="."]
 layout_mode = 3
@@ -179,5 +178,5 @@ libraries = {
 "": SubResource("AnimationLibrary_dm3vd")
 }
 
-[connection signal="life_lost" from="." to="UI/MarginContainer/VBoxContainer/LevelLabel" method="_on_game_life_lost"]
+[connection signal="life_changed" from="." to="UI/MarginContainer/VBoxContainer/LifesLabel" method="_on_game_life_changed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

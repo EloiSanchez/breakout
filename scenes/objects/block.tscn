@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://04g54m4gi0kv"]
+[gd_scene load_steps=11 format=3 uid="uid://04g54m4gi0kv"]
 
 [ext_resource type="Script" path="res://scripts/objects/block.gd" id="1_hq8iy"]
 [ext_resource type="Texture2D" uid="uid://bbwklp2w6cd8s" path="res://assets/art/blocks/contours/contour-1.png" id="1_jucla"]
-[ext_resource type="Texture2D" uid="uid://cyngjrkrv0do7" path="res://assets/art/blocks/block-colors/block-color-4.png" id="1_rtjn5"]
 [ext_resource type="Texture2D" uid="uid://cc26d5dpwbh0f" path="res://assets/art/blocks/contours/contour-2.png" id="2_t4r8g"]
 [ext_resource type="Texture2D" uid="uid://bocwrkxdumqiv" path="res://assets/art/blocks/contours/contour-3.png" id="3_mgyq0"]
 [ext_resource type="Texture2D" uid="uid://b6unf1pxhrvhe" path="res://assets/art/blocks/contours/contour-4.png" id="4_o3a00"]
@@ -73,6 +72,7 @@ func _process(delta: float) -> void:
 
 [node name="Block" type="StaticBody2D" groups=["blocks"]]
 script = ExtResource("1_hq8iy")
+needs_update = null
 metadata/_edit_group_ = true
 
 [node name="HitParticles" type="CPUParticles2D" parent="."]
@@ -95,7 +95,6 @@ color = Color(0.201527, 0.201527, 0.201527, 1)
 shape = SubResource("RectangleShape2D_6pivr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_rtjn5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_v3sar")

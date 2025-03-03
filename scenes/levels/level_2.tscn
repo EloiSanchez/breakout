@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqjsfoq8m7obw"]
+[gd_scene load_steps=6 format=3 uid="uid://bqjsfoq8m7obw"]
 
 [ext_resource type="PackedScene" uid="uid://04g54m4gi0kv" path="res://scenes/objects/block.tscn" id="1_balod"]
 [ext_resource type="Texture2D" uid="uid://bky5sodbtl1kx" path="res://assets/art/blocks/block-colors/block-color-1.png" id="2_23ofo"]
 [ext_resource type="Texture2D" uid="uid://cyngjrkrv0do7" path="res://assets/art/blocks/block-colors/block-color-4.png" id="3_3pj4x"]
+[ext_resource type="Resource" uid="uid://2j0losbrql30" path="res://resources/upgrades/extra_life_upgrade.tres" id="3_3w3pk"]
+[ext_resource type="Resource" uid="uid://dsbx8bqp4ulo1" path="res://resources/upgrades/extra_ball_upgrade.tres" id="5_25aci"]
 
 [node name="Level1" type="Control"]
 layout_mode = 3
@@ -21,6 +23,8 @@ max_health = 2
 
 [node name="Block14" parent="." instance=ExtResource("1_balod")]
 position = Vector2(216, 56)
+upgrade_resource = ExtResource("3_3w3pk")
+needs_update = false
 color_sprite = ExtResource("2_23ofo")
 max_health = 2
 
@@ -61,6 +65,8 @@ max_health = 1
 
 [node name="Block27" parent="." instance=ExtResource("1_balod")]
 position = Vector2(408, 72)
+upgrade_resource = ExtResource("5_25aci")
+needs_update = false
 color_sprite = ExtResource("3_3pj4x")
 max_health = 1
 

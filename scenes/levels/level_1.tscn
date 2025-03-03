@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://7iej74k7v3o0"]
+[gd_scene load_steps=5 format=3 uid="uid://7iej74k7v3o0"]
 
 [ext_resource type="PackedScene" uid="uid://04g54m4gi0kv" path="res://scenes/objects/block.tscn" id="1_j7h4f"]
 [ext_resource type="Texture2D" uid="uid://djhnenk1d1t88" path="res://assets/art/blocks/block-colors/block-color-3.png" id="3_lgd5x"]
+[ext_resource type="Resource" uid="uid://dsbx8bqp4ulo1" path="res://resources/upgrades/extra_ball_upgrade.tres" id="4_behtd"]
 [ext_resource type="Texture2D" uid="uid://c0tctirgtl4p1" path="res://assets/art/blocks/block-colors/block-color-2.png" id="4_cph1p"]
 
 [node name="Level1" type="Control"]
@@ -16,11 +17,13 @@ max_health = 1
 
 [node name="Block12" parent="." instance=ExtResource("1_j7h4f")]
 position = Vector2(168, 56)
+needs_update = false
 color_sprite = ExtResource("3_lgd5x")
 max_health = 1
 
 [node name="Block14" parent="." instance=ExtResource("1_j7h4f")]
 position = Vector2(264, 56)
+needs_update = false
 color_sprite = ExtResource("3_lgd5x")
 max_health = 1
 
@@ -46,6 +49,8 @@ max_health = 1
 
 [node name="Block22" parent="." instance=ExtResource("1_j7h4f")]
 position = Vector2(168, 72)
+upgrade_resource = ExtResource("4_behtd")
+needs_update = false
 color_sprite = ExtResource("4_cph1p")
 max_health = 1
 
@@ -56,6 +61,7 @@ max_health = 1
 
 [node name="Block25" parent="." instance=ExtResource("1_j7h4f")]
 position = Vector2(312, 72)
+needs_update = false
 color_sprite = ExtResource("4_cph1p")
 max_health = 1
 

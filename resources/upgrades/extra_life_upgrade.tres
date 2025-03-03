@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ExtraLifeUpgrade" load_steps=3 format=3 uid="uid://2j0losbrql30"]
+
+[ext_resource type="Script" path="res://utils/upgrades/extra_life_upgrade.gd" id="1_thkdv"]
+[ext_resource type="Texture2D" uid="uid://2f352wwn6tet" path="res://assets/art/upgrades/extra-life-upgrade.png" id="2_6b3vd"]
+
+[resource]
+script = ExtResource("1_thkdv")
+texture = ExtResource("2_6b3vd")

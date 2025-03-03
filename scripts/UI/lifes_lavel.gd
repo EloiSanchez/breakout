@@ -12,7 +12,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _on_game_life_lost() -> void:
+func _on_game_life_changed() -> void:
 	update_text()
 
 func update_text():

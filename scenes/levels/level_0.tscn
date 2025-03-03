@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dapqukp4vl56b"]
+[gd_scene load_steps=5 format=3 uid="uid://dapqukp4vl56b"]
 
 [ext_resource type="PackedScene" uid="uid://04g54m4gi0kv" path="res://scenes/objects/block.tscn" id="1_vulij"]
+[ext_resource type="PackedScene" uid="uid://chpuqh1ebvf2g" path="res://scenes/upgrades/upgrade.tscn" id="3_fakal"]
 [ext_resource type="Texture2D" uid="uid://cyngjrkrv0do7" path="res://assets/art/blocks/block-colors/block-color-4.png" id="3_fsfh6"]
+[ext_resource type="Resource" uid="uid://8meomhvvk0r1" path="res://resources/upgrades/increase_size_upgrade.tres" id="4_i3bei"]
 
 [node name="Level1" type="Control"]
 layout_mode = 3
@@ -12,3 +14,7 @@ metadata/_edit_vertical_guides_ = [96.0]
 position = Vector2(288, 296)
 color_sprite = ExtResource("3_fsfh6")
 max_health = 1
+
+[node name="Upgrade" parent="." instance=ExtResource("3_fakal")]
+position = Vector2(288, 160)
+upgrade_resource = ExtResource("4_i3bei")

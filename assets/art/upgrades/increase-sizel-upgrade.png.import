@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2axsj6pfdv26"
-path="res://.godot/imported/board.png-e52814d21102c6da5ff830379deb2d30.ctex"
+uid="uid://dur0x8j1f0ypt"
+path="res://.godot/imported/increase-sizel-upgrade.png-7f5c69a3436df95850cb65ab2dcd7f41.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/board/board.png"
-dest_files=["res://.godot/imported/board.png-e52814d21102c6da5ff830379deb2d30.ctex"]
+source_file="res://assets/art/upgrades/increase-sizel-upgrade.png"
+dest_files=["res://.godot/imported/increase-sizel-upgrade.png-7f5c69a3436df95850cb65ab2dcd7f41.ctex"]
 
 [params]
 

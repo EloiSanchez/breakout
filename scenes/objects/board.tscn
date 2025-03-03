@@ -1,20 +1,22 @@
 [gd_scene load_steps=4 format=3 uid="uid://dxkrjbtdn14uu"]
 
-[ext_resource type="Texture2D" uid="uid://2axsj6pfdv26" path="res://assets/art/board/board.png" id="1_1mwce"]
 [ext_resource type="Script" path="res://scripts/objects/board.gd" id="1_ckypq"]
+[ext_resource type="Texture2D" uid="uid://dwjaioflr8ata" path="res://assets/art/board/board-1.png" id="2_1tn1u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ffq1"]
 size = Vector2(64, 7)
 
 [node name="Board" type="Area2D" groups=["player"]]
+position = Vector2(72, 40)
 script = ExtResource("1_ckypq")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4.5)
 shape = SubResource("RectangleShape2D_6ffq1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_1mwce")
+texture = ExtResource("2_1tn1u")
 
 [node name="TrajectorySource" type="Marker2D" parent="."]
 position = Vector2(0, 32)

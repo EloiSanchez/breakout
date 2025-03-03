@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ExtraBallUpgrade" load_steps=3 format=3 uid="uid://dsbx8bqp4ulo1"]
+
+[ext_resource type="Script" path="res://utils/upgrades/extra_ball_upgrade.gd" id="1_u0h5w"]
+[ext_resource type="Texture2D" uid="uid://pywfipbtiiv" path="res://assets/art/upgrades/extra-ball-upgrade.png" id="2_hdbae"]
+
+[resource]
+script = ExtResource("1_u0h5w")
+texture = ExtResource("2_hdbae")
