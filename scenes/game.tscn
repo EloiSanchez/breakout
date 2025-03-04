@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://ckbc5nu0asr8v"]
+[gd_scene load_steps=10 format=3 uid="uid://ckbc5nu0asr8v"]
 
-[ext_resource type="Script" path="res://scenes/game.gd" id="1_nsyc0"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_nsyc0"]
 [ext_resource type="PackedScene" uid="uid://jymrix732t4s" path="res://scenes/objects/ball.tscn" id="2_bodub"]
 [ext_resource type="PackedScene" uid="uid://dxkrjbtdn14uu" path="res://scenes/objects/board.tscn" id="3_ms454"]
 [ext_resource type="PackedScene" uid="uid://cg658sikrrp2c" path="res://scenes/objects/wall.tscn" id="4_gwypq"]
 [ext_resource type="Theme" uid="uid://d1wioiylhv7id" path="res://resources/themes/custom_theme.tres" id="5_eb8sr"]
-[ext_resource type="Script" path="res://scripts/UI/lifes_lavel.gd" id="6_lv5wp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8edrn"]
 size = Vector2(384, 18)
@@ -119,9 +118,12 @@ offset_bottom = 400.0
 theme = ExtResource("5_eb8sr")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
@@ -132,14 +134,22 @@ layout_mode = 2
 
 [node name="LevelLabel" type="Label" parent="UI/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme = ExtResource("5_eb8sr")
 text = "Level X"
 
-[node name="LifesLabel" type="Label" parent="UI/MarginContainer/VBoxContainer" node_paths=PackedStringArray("game")]
+[node name="HealthSection" type="MarginContainer" parent="UI/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Lifes: X"
-script = ExtResource("6_lv5wp")
-game = NodePath("../../../..")
+size_flags_vertical = 0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+
+[node name="HBoxContainer" type="HFlowContainer" parent="UI/MarginContainer/VBoxContainer/HealthSection"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/h_separation = 28
+theme_override_constants/v_separation = 30
 
 [node name="Control" type="Control" parent="UI"]
 anchors_preset = 0
@@ -178,5 +188,4 @@ libraries = {
 "": SubResource("AnimationLibrary_dm3vd")
 }
 
-[connection signal="life_changed" from="." to="UI/MarginContainer/VBoxContainer/LifesLabel" method="_on_game_life_changed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

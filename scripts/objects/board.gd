@@ -19,10 +19,10 @@ var screen_width: int
 		size_level = clamp(value, 0, 1)
 		sprite.texture = textures[size_level]
 		collision.shape.size.x = sprite.texture.get_width()
+		width = sprite.texture.get_width()
 
 func _ready() -> void:
 	size_level = 0
-	width = sprite.texture.get_width()
 	screen_width = get_viewport_rect().size.x
 
 func _physics_process(delta: float) -> void:

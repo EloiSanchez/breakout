@@ -3,11 +3,13 @@ extends Node2D
 signal life_changed
 
 @onready var ball: PackedScene = load("res://scenes/objects/ball.tscn")
+@onready var health_container: PackedScene = load("res://scenes/UI/objects/health_container.tscn")
 @onready var ball_spawn: Marker2D = $BallSpawn
 @onready var animation: AnimationPlayer = $AnimationPlayer
 @onready var level_label: Label = $UI/MarginContainer/VBoxContainer/LevelLabel
 @onready var level_label_transition: Label = $UI/Control/LevelLabel
 @onready var board: Board = $Board
+@onready var health_section: HFlowContainer = $UI/MarginContainer/VBoxContainer/HealthSection/HBoxContainer
 
 @export var lifes: int = 3
 @export var level_number: int = 0
@@ -18,7 +20,10 @@ var level: Node
 func _ready() -> void:
 	SignalBus.picked_up_upgrade.connect(_perform_upgrade)
 	animation.play("start_game")
-
+	for life in range(lifes):
+		var health_cont_inst = health_container.instantiate()
+		health_cont_inst.name += str(life)
+		health_section.add_child(health_cont_inst)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -71,6 +76,7 @@ func _on_area_2d_body_entered(ball: Ball) -> void:
 func lose_life():
 	lifes -= 1
 	life_changed.emit()
+	health_section.get_node("HealthContainer%s" % lifes).queue_free()
 	board.decrease_size()
 	if lifes == 0:
 		end_game()
@@ -78,6 +84,9 @@ func lose_life():
 		spawn_ball(ball_spawn.global_position, false, true)
 		
 func increase_life():
+	var health_cont_inst = health_container.instantiate()
+	health_cont_inst.name += str(lifes)
+	health_section.add_child(health_cont_inst)
 	lifes += 1
 	life_changed.emit()
 
