@@ -7,7 +7,7 @@ signal life_changed
 @onready var ball_spawn: Marker2D = $BallSpawn
 @onready var animation: AnimationPlayer = $AnimationPlayer
 @onready var level_label: Label = $UI/MarginContainer/VBoxContainer/LevelLabel
-@onready var level_label_transition: Label = $UI/Control/LevelLabel
+@onready var ui_message: Label = $UI/Control/UIMessage
 @onready var board: Board = $Board
 @onready var health_section: HFlowContainer = $UI/MarginContainer/VBoxContainer/HealthSection/HBoxContainer
 
@@ -64,7 +64,7 @@ func level_won():
 func update_text_labels():
 	var text = "Level %s" % level_number
 	level_label.text = text
-	level_label_transition.text = text
+	ui_message.text = text
 
 # On ball lost
 func _on_area_2d_body_entered(ball: Ball) -> void:
@@ -79,7 +79,7 @@ func lose_life():
 	health_section.get_node("HealthContainer%s" % lifes).queue_free()
 	board.decrease_size()
 	if lifes == 0:
-		end_game()
+		animation.play("game_over")
 	else:
 		spawn_ball(ball_spawn.global_position, false, true)
 		
@@ -89,9 +89,9 @@ func increase_life():
 	health_section.add_child(health_cont_inst)
 	lifes += 1
 	life_changed.emit()
-
-func end_game():
-	pass
+	
+func to_main_menu():
+	get_tree().change_scene_to_file("res://scenes/UI/main_menu.tscn")
 
 func _perform_upgrade(upgrade: BaseUpgrade, upgrade_node: Upgrade):
 	print("Upgrade picked. Calling perform upgrade from game")

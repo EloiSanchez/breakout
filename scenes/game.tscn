@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ckbc5nu0asr8v"]
+[gd_scene load_steps=11 format=3 uid="uid://ckbc5nu0asr8v"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_nsyc0"]
 [ext_resource type="PackedScene" uid="uid://jymrix732t4s" path="res://scenes/objects/ball.tscn" id="2_bodub"]
@@ -11,6 +11,18 @@ size = Vector2(384, 18)
 
 [sub_resource type="Animation" id="Animation_ap7u5"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/Control/UIMessage:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Level X"]
+}
 
 [sub_resource type="Animation" id="Animation_5f4q0"]
 resource_name = "start_game"
@@ -35,7 +47,7 @@ tracks/0/keys = {
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("UI/Control/LevelLabel")
+tracks/1/path = NodePath("UI/Control/UIMessage")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -64,14 +76,60 @@ tracks/2/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_apcby"]
+resource_name = "game_over"
+length = 3.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/Control/UIMessage")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"show"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/Control/UIMessage:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["GAME OVER!"]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"to_main_menu"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dm3vd"]
 _data = {
 "RESET": SubResource("Animation_ap7u5"),
+"game_over": SubResource("Animation_apcby"),
 "start_game": SubResource("Animation_5f4q0")
 }
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_nsyc0")
+level_number = 1
 
 [node name="Background" type="Control" parent="."]
 layout_mode = 3
@@ -157,8 +215,7 @@ offset_left = 96.0
 offset_right = 480.0
 offset_bottom = 392.0
 
-[node name="LevelLabel" type="Label" parent="UI/Control"]
-visible = false
+[node name="UIMessage" type="Label" parent="UI/Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
