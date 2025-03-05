@@ -21,45 +21,94 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
+theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 80
 
-[node name="VSplitContainer" type="VSplitContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 100
-dragger_visibility = 1
-
-[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/VSplitContainer"]
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Breakout"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VSplitContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_right = 100
 
-[node name="VSplitContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VSplitContainer/MarginContainer"]
+[node name="MainButtons" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CenterContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer/VSplitContainer/MarginContainer/VSplitContainer"]
+[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer/CenterContainer/MainButtons"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Start"
 
-[node name="SelectLevelButton" type="Button" parent="MarginContainer/VBoxContainer/VSplitContainer/MarginContainer/VSplitContainer"]
+[node name="SelectLevelButton" type="Button" parent="MarginContainer/VBoxContainer/CenterContainer/MainButtons"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Select Level"
 
-[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/VSplitContainer/MarginContainer/VSplitContainer"]
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/CenterContainer/MainButtons"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Quit"
 
-[connection signal="button_up" from="MarginContainer/VBoxContainer/VSplitContainer/MarginContainer/VSplitContainer/StartButton" to="." method="_on_start_button_button_up"]
-[connection signal="button_up" from="MarginContainer/VBoxContainer/VSplitContainer/MarginContainer/VSplitContainer/SelectLevelButton" to="." method="_on_select_level_button_button_up"]
-[connection signal="button_up" from="MarginContainer/VBoxContainer/VSplitContainer/MarginContainer/VSplitContainer/QuitButton" to="." method="_on_quit_button_button_up"]
+[node name="LevelMenu" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CenterContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="LevelSelection" type="GridContainer" parent="MarginContainer/VBoxContainer/CenterContainer/LevelMenu"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 3
+
+[node name="Level1" type="Button" parent="MarginContainer/VBoxContainer/CenterContainer/LevelMenu/LevelSelection"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "1"
+
+[node name="Level2" type="Button" parent="MarginContainer/VBoxContainer/CenterContainer/LevelMenu/LevelSelection"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "2"
+
+[node name="Level3" type="Button" parent="MarginContainer/VBoxContainer/CenterContainer/LevelMenu/LevelSelection"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "3"
+
+[node name="Level4" type="Button" parent="MarginContainer/VBoxContainer/CenterContainer/LevelMenu/LevelSelection"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "4"
+
+[node name="Level5" type="Button" parent="MarginContainer/VBoxContainer/CenterContainer/LevelMenu/LevelSelection"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "5"
+
+[node name="Level6" type="Button" parent="MarginContainer/VBoxContainer/CenterContainer/LevelMenu/LevelSelection"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "6"
+
+[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer/CenterContainer/LevelMenu"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="button_up" from="MarginContainer/VBoxContainer/CenterContainer/MainButtons/StartButton" to="." method="_on_start_button_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/CenterContainer/MainButtons/SelectLevelButton" to="." method="_on_select_level_button_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/CenterContainer/MainButtons/QuitButton" to="." method="_on_quit_button_button_up"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CenterContainer/LevelMenu/BackButton" to="." method="_on_back_button_pressed"]
