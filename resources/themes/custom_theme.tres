@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=4 format=3 uid="uid://d1wioiylhv7id"]
 
-[ext_resource type="FontFile" uid="uid://cpsuhlb5etwvc" path="res://assets/fonts/m5x7.ttf" id="1_dcp86"]
+[ext_resource type="FontFile" uid="uid://ucp6wvaku8u0" path="res://assets/fonts/rainyhearts.ttf" id="1_wblwt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ih00v"]
 bg_color = Color(0.380392, 0.368627, 0.521569, 1)
@@ -31,7 +31,7 @@ shadow_color = Color(0.878431, 0.878431, 0.862745, 1)
 shadow_size = 4
 
 [resource]
-default_font = ExtResource("1_dcp86")
+default_font = ExtResource("1_wblwt")
 default_font_size = 32
 Button/colors/font_color = Color(0.878431, 0.878431, 0.862745, 1)
 Button/constants/outline_size = 0
