@@ -49,6 +49,5 @@ func start_moving():
 	set_physics_process(true)
 
 func _remove_ball() -> void:
-	print("Removing ball")
 	remove_from_group("balls")
 	queue_free()

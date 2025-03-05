@@ -30,5 +30,4 @@ func _process(delta: float) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area is Board:
-		print("Board picked up upgrade. Emitting signal")
 		SignalBus.picked_up_upgrade.emit(upgrade_resource, self)
