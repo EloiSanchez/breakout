@@ -54,12 +54,19 @@ func start_moving_balls():
 
 func _check_level_finished():
 	if not get_tree().get_nodes_in_group("blocks"):
-		level_won()
+		if level_number >= 6:
+			game_won()
+		else:
+			level_won()
 
 func level_won():
 	level_number += 1
 	board.decrease_size()
 	animation.play("start_game")
+
+func game_won():
+	get_tree().change_scene_to_file("res://scenes/UI/game_won.tscn")
+	queue_free()
 
 func update_text_labels():
 	var text = "Level %s" % level_number

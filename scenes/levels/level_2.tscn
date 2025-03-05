@@ -12,74 +12,73 @@ metadata/_edit_vertical_guides_ = [96.0]
 
 [node name="Block11" parent="." instance=ExtResource("1_balod")]
 position = Vector2(120, 56)
-needs_update = false
+needs_update = true
 color_sprite = ExtResource("2_23ofo")
 max_health = 2
 
 [node name="Block12" parent="." instance=ExtResource("1_balod")]
 position = Vector2(168, 56)
-needs_update = false
+needs_update = true
 color_sprite = ExtResource("2_23ofo")
 max_health = 2
 
 [node name="Block14" parent="." instance=ExtResource("1_balod")]
 position = Vector2(216, 56)
-needs_update = false
+needs_update = true
 color_sprite = ExtResource("2_23ofo")
 max_health = 2
 
 [node name="Block15" parent="." instance=ExtResource("1_balod")]
 position = Vector2(360, 56)
-needs_update = false
+needs_update = true
 color_sprite = ExtResource("2_23ofo")
 max_health = 2
 
 [node name="Block17" parent="." instance=ExtResource("1_balod")]
 position = Vector2(408, 56)
-needs_update = false
+needs_update = true
 color_sprite = ExtResource("2_23ofo")
 max_health = 2
 
 [node name="Block18" parent="." instance=ExtResource("1_balod")]
 position = Vector2(456, 56)
-needs_update = false
+needs_update = true
 color_sprite = ExtResource("2_23ofo")
 max_health = 2
 
 [node name="Block21" parent="." instance=ExtResource("1_balod")]
 position = Vector2(120, 72)
-needs_update = false
+needs_update = true
 color_sprite = ExtResource("3_3pj4x")
 max_health = 1
 
 [node name="Block22" parent="." instance=ExtResource("1_balod")]
 position = Vector2(168, 72)
-needs_update = false
+needs_update = true
 color_sprite = ExtResource("3_3pj4x")
 max_health = 1
 
 [node name="Block24" parent="." instance=ExtResource("1_balod")]
 position = Vector2(216, 72)
-needs_update = false
+needs_update = true
 color_sprite = ExtResource("3_3pj4x")
 max_health = 1
 
 [node name="Block25" parent="." instance=ExtResource("1_balod")]
-modulate = Color(1, 1, 0, 1)
 position = Vector2(360, 72)
 upgrade_resource = ExtResource("3_3w3pk")
-needs_update = false
+needs_update = true
 color_sprite = ExtResource("3_3pj4x")
 max_health = 1
 
 [node name="Block27" parent="." instance=ExtResource("1_balod")]
 position = Vector2(408, 72)
-needs_update = false
+needs_update = true
 color_sprite = ExtResource("3_3pj4x")
 max_health = 1
 
 [node name="Block28" parent="." instance=ExtResource("1_balod")]
 position = Vector2(456, 72)
-needs_update = false
+needs_update = true
 color_sprite = ExtResource("3_3pj4x")
 max_health = 1
