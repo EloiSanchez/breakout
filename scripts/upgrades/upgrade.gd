@@ -17,14 +17,13 @@ signal picked_up(upgrade: BaseUpgrade)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	sprite_2d.texture = upgrade_resource.texture
-	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
-		if needs_update:
+		if needs_update and upgrade_resource and upgrade_resource.texture:
 			sprite_2d.texture = upgrade_resource.texture
-			needs_update = false
+		needs_update = false
 	else:
 		position.y += falling_velocity * delta
 

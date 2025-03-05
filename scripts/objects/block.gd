@@ -10,7 +10,10 @@ signal destroyed
 		needs_update = true
 var upgrade: PackedScene = load("res://scenes/upgrades/upgrade.tscn")
 @export var needs_update = false
-@export var color_sprite: Texture2D
+@export var color_sprite: Texture2D:
+	set(value):
+		color_sprite = value
+		needs_update = true
 @export_range(1, 4, 1) var max_health: int
 var health: int
 
@@ -33,6 +36,7 @@ func _process(delta: float) -> void:
 				modulate.b = 0
 			else:
 				modulate.b = 1
+			sprite.texture = color_sprite
 			needs_update = false
 
 

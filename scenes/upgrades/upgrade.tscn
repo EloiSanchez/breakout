@@ -1,19 +1,18 @@
 [gd_scene load_steps=5 format=3 uid="uid://chpuqh1ebvf2g"]
 
 [ext_resource type="Script" path="res://scripts/upgrades/upgrade.gd" id="1_eme7r"]
-[ext_resource type="Script" path="res://utils/upgrades/base_upgrade.gd" id="2_46go4"]
-
-[sub_resource type="Resource" id="Resource_ylf2p"]
-script = ExtResource("2_46go4")
+[ext_resource type="Resource" uid="uid://bstyl2k628ydk" path="res://resources/upgrades/base_upgrade.tres" id="2_kvcc3"]
+[ext_resource type="Texture2D" uid="uid://dw3tsugnwg0o8" path="res://assets/art/upgrades/base-upgrade.png" id="3_lf1u0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v85ro"]
 radius = 12.0
 
 [node name="Upgrade" type="Area2D"]
 script = ExtResource("1_eme7r")
-upgrade_resource = SubResource("Resource_ylf2p")
+upgrade_resource = ExtResource("2_kvcc3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_lf1u0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_v85ro")

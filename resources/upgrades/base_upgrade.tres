@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BaseUpgrade" load_steps=3 format=3 uid="uid://bstyl2k628ydk"]
+
+[ext_resource type="Script" path="res://utils/upgrades/base_upgrade.gd" id="1_iaqnn"]
+[ext_resource type="Texture2D" uid="uid://dw3tsugnwg0o8" path="res://assets/art/upgrades/base-upgrade.png" id="2_2hlc7"]
+
+[resource]
+script = ExtResource("1_iaqnn")
+texture = ExtResource("2_2hlc7")

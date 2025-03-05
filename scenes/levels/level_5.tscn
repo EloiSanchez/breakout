@@ -1,0 +1,359 @@
+[gd_scene load_steps=9 format=3 uid="uid://c5idv8dedh1uu"]
+
+[ext_resource type="PackedScene" uid="uid://04g54m4gi0kv" path="res://scenes/objects/block.tscn" id="1_0n8oq"]
+[ext_resource type="Texture2D" uid="uid://djhnenk1d1t88" path="res://assets/art/blocks/block-colors/block-color-3.png" id="2_1f0du"]
+[ext_resource type="Resource" uid="uid://2j0losbrql30" path="res://resources/upgrades/extra_life_upgrade.tres" id="3_3aeve"]
+[ext_resource type="Texture2D" uid="uid://cyngjrkrv0do7" path="res://assets/art/blocks/block-colors/block-color-4.png" id="3_pwja1"]
+[ext_resource type="Texture2D" uid="uid://c0tctirgtl4p1" path="res://assets/art/blocks/block-colors/block-color-2.png" id="4_3ex8x"]
+[ext_resource type="Resource" uid="uid://8meomhvvk0r1" path="res://resources/upgrades/increase_size_upgrade.tres" id="5_w48kf"]
+[ext_resource type="Resource" uid="uid://dsbx8bqp4ulo1" path="res://resources/upgrades/extra_ball_upgrade.tres" id="6_xse4r"]
+[ext_resource type="Texture2D" uid="uid://bky5sodbtl1kx" path="res://assets/art/blocks/block-colors/block-color-1.png" id="7_bn214"]
+
+[node name="Level1" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 88.0
+offset_right = 88.0
+metadata/_edit_vertical_guides_ = [96.0]
+
+[node name="Block13" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(176, 72)
+needs_update = false
+color_sprite = ExtResource("2_1f0du")
+max_health = 3
+
+[node name="Block15" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(176, 104)
+needs_update = false
+color_sprite = ExtResource("2_1f0du")
+max_health = 3
+
+[node name="Block24" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(128, 104)
+needs_update = false
+color_sprite = ExtResource("2_1f0du")
+max_health = 3
+
+[node name="Block25" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(128, 88)
+needs_update = false
+color_sprite = ExtResource("2_1f0du")
+max_health = 3
+
+[node name="Block28" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(128, 72)
+needs_update = false
+color_sprite = ExtResource("2_1f0du")
+max_health = 3
+
+[node name="Block16" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(224, 104)
+needs_update = false
+color_sprite = ExtResource("2_1f0du")
+max_health = 3
+
+[node name="Block21" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(272, 104)
+needs_update = false
+color_sprite = ExtResource("2_1f0du")
+max_health = 3
+
+[node name="Block22" parent="." instance=ExtResource("1_0n8oq")]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(272, 88)
+upgrade_resource = ExtResource("3_3aeve")
+needs_update = false
+color_sprite = ExtResource("2_1f0du")
+max_health = 3
+
+[node name="Block23" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(272, 72)
+needs_update = false
+color_sprite = ExtResource("2_1f0du")
+max_health = 3
+
+[node name="Block32" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(224, 72)
+needs_update = false
+color_sprite = ExtResource("2_1f0du")
+max_health = 3
+
+[node name="Block18" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(224, 88)
+needs_update = false
+color_sprite = ExtResource("3_pwja1")
+max_health = 4
+
+[node name="Block19" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(176, 88)
+needs_update = false
+color_sprite = ExtResource("3_pwja1")
+max_health = 4
+
+[node name="Block26" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(80, 72)
+needs_update = false
+color_sprite = ExtResource("4_3ex8x")
+max_health = 2
+
+[node name="Block27" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(80, 56)
+needs_update = false
+color_sprite = ExtResource("4_3ex8x")
+max_health = 2
+
+[node name="Block44" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(224, 56)
+needs_update = false
+color_sprite = ExtResource("4_3ex8x")
+max_health = 2
+
+[node name="Block46" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(176, 120)
+needs_update = false
+color_sprite = ExtResource("4_3ex8x")
+max_health = 2
+
+[node name="Block47" parent="." instance=ExtResource("1_0n8oq")]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(224, 120)
+upgrade_resource = ExtResource("5_w48kf")
+needs_update = false
+color_sprite = ExtResource("4_3ex8x")
+max_health = 2
+
+[node name="Block66" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(272, 120)
+needs_update = false
+color_sprite = ExtResource("4_3ex8x")
+max_health = 2
+
+[node name="Block60" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(272, 56)
+needs_update = false
+color_sprite = ExtResource("4_3ex8x")
+max_health = 2
+
+[node name="Block61" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(320, 56)
+needs_update = false
+color_sprite = ExtResource("4_3ex8x")
+max_health = 2
+
+[node name="Block57" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(128, 56)
+needs_update = false
+color_sprite = ExtResource("4_3ex8x")
+max_health = 2
+
+[node name="Block58" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(176, 56)
+needs_update = false
+color_sprite = ExtResource("4_3ex8x")
+max_health = 2
+
+[node name="Block45" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(80, 88)
+needs_update = false
+color_sprite = ExtResource("4_3ex8x")
+max_health = 2
+
+[node name="Block42" parent="." instance=ExtResource("1_0n8oq")]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(80, 104)
+upgrade_resource = ExtResource("6_xse4r")
+needs_update = false
+color_sprite = ExtResource("4_3ex8x")
+max_health = 2
+
+[node name="Block43" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(80, 120)
+needs_update = false
+color_sprite = ExtResource("4_3ex8x")
+max_health = 2
+
+[node name="Block29" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(320, 72)
+needs_update = false
+color_sprite = ExtResource("4_3ex8x")
+max_health = 2
+
+[node name="Block62" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(320, 88)
+needs_update = false
+color_sprite = ExtResource("4_3ex8x")
+max_health = 2
+
+[node name="Block63" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(320, 104)
+needs_update = false
+color_sprite = ExtResource("4_3ex8x")
+max_health = 2
+
+[node name="Block64" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(320, 120)
+needs_update = false
+color_sprite = ExtResource("4_3ex8x")
+max_health = 2
+
+[node name="Block59" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(128, 120)
+needs_update = false
+color_sprite = ExtResource("4_3ex8x")
+max_health = 2
+
+[node name="Block54" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(32, 72)
+needs_update = false
+color_sprite = ExtResource("7_bn214")
+max_health = 1
+
+[node name="Block55" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(32, 56)
+needs_update = false
+color_sprite = ExtResource("7_bn214")
+max_health = 1
+
+[node name="Block49" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(176, 136)
+needs_update = false
+color_sprite = ExtResource("7_bn214")
+max_health = 1
+
+[node name="Block53" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(224, 136)
+needs_update = false
+color_sprite = ExtResource("7_bn214")
+max_health = 1
+
+[node name="Block71" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(80, 136)
+needs_update = false
+color_sprite = ExtResource("7_bn214")
+max_health = 1
+
+[node name="Block72" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(128, 136)
+needs_update = false
+color_sprite = ExtResource("7_bn214")
+max_health = 1
+
+[node name="Block73" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(272, 136)
+needs_update = false
+color_sprite = ExtResource("7_bn214")
+max_health = 1
+
+[node name="Block74" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(320, 136)
+needs_update = false
+color_sprite = ExtResource("7_bn214")
+max_health = 1
+
+[node name="Block75" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(368, 136)
+needs_update = false
+color_sprite = ExtResource("7_bn214")
+max_health = 1
+
+[node name="Block76" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(32, 136)
+needs_update = false
+color_sprite = ExtResource("7_bn214")
+max_health = 1
+
+[node name="Block56" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(176, 40)
+needs_update = false
+color_sprite = ExtResource("7_bn214")
+max_health = 1
+
+[node name="Block77" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(224, 40)
+needs_update = false
+color_sprite = ExtResource("7_bn214")
+max_health = 1
+
+[node name="Block78" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(80, 40)
+needs_update = false
+color_sprite = ExtResource("7_bn214")
+max_health = 1
+
+[node name="Block79" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(128, 40)
+needs_update = false
+color_sprite = ExtResource("7_bn214")
+max_health = 1
+
+[node name="Block80" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(272, 40)
+needs_update = false
+color_sprite = ExtResource("7_bn214")
+max_health = 1
+
+[node name="Block81" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(320, 40)
+needs_update = false
+color_sprite = ExtResource("7_bn214")
+max_health = 1
+
+[node name="Block82" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(368, 40)
+needs_update = false
+color_sprite = ExtResource("7_bn214")
+max_health = 1
+
+[node name="Block83" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(32, 40)
+needs_update = false
+color_sprite = ExtResource("7_bn214")
+max_health = 1
+
+[node name="Block50" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(32, 120)
+needs_update = false
+color_sprite = ExtResource("7_bn214")
+max_health = 1
+
+[node name="Block51" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(32, 104)
+needs_update = false
+color_sprite = ExtResource("7_bn214")
+max_health = 1
+
+[node name="Block52" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(32, 88)
+needs_update = false
+color_sprite = ExtResource("7_bn214")
+max_health = 1
+
+[node name="Block65" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(368, 72)
+needs_update = false
+color_sprite = ExtResource("7_bn214")
+max_health = 1
+
+[node name="Block67" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(368, 56)
+needs_update = false
+color_sprite = ExtResource("7_bn214")
+max_health = 1
+
+[node name="Block68" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(368, 120)
+needs_update = false
+color_sprite = ExtResource("7_bn214")
+max_health = 1
+
+[node name="Block69" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(368, 104)
+needs_update = false
+color_sprite = ExtResource("7_bn214")
+max_health = 1
+
+[node name="Block70" parent="." instance=ExtResource("1_0n8oq")]
+position = Vector2(368, 88)
+needs_update = false
+color_sprite = ExtResource("7_bn214")
+max_health = 1
