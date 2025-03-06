@@ -15,7 +15,6 @@ signal life_changed
 @export var level_number: int = 0
 
 var level: Node
-var main_menu_scene: PackedScene = load("res://scenes/UI/main_menu.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -95,9 +94,15 @@ func increase_life():
 	health_section.add_child(health_cont_inst)
 	lifes += 1
 	life_changed.emit()
-	
+
+func _input(event):
+	if event is InputEventKey:
+		if Input.is_action_pressed("ui_cancel"):
+			to_main_menu()
+
 func to_main_menu():
-	get_tree().change_scene_to_packed(main_menu_scene)
+	get_tree().change_scene_to_file("res://scenes/UI/main_menu.tscn")
+	#queue_free()
 
 func _perform_upgrade(upgrade: BaseUpgrade, upgrade_node: Upgrade):
 	print("Upgrade picked. Calling perform upgrade from game")

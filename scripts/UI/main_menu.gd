@@ -10,14 +10,14 @@ func _ready():
 	for button in level_selection.get_children():
 		button.pressed.connect(_to_level.bind(button.text))
 
-func _on_start_button_button_up() -> void:
+func _on_start_button_pressed() -> void:
 	get_tree().change_scene_to_packed(game)
 
-func _on_select_level_button_button_up() -> void:
+func _on_select_level_button_pressed() -> void:
 	main_buttons.hide()
 	level_menu.show()
 
-func _on_quit_button_button_up() -> void:
+func _on_quit_button_pressed() -> void:
 	get_tree().quit()
 
 func _to_level(level: String):
