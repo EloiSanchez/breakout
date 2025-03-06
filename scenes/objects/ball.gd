@@ -7,6 +7,7 @@ extends RigidBody2D
 @export var max_velocity: int = 400
 @export var velocity: Vector2 = Vector2(0, -180)
 @export var enable_movement: bool = false
+@export var start_on_timer: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,6 +15,8 @@ func _ready() -> void:
 	velocity.x = randi_range(-20, 20)
 	if not enable_movement:
 		set_physics_process(enable_movement)
+		if start_on_timer:
+			start_timer.start()
 		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

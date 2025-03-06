@@ -15,6 +15,7 @@ signal life_changed
 @export var level_number: int = 0
 
 var level: Node
+var main_menu_scene: PackedScene = load("res://scenes/UI/main_menu.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -32,11 +33,9 @@ func _process(delta: float) -> void:
 func spawn_ball(pos: Vector2, start_moving: bool = false, start_timer: bool = false):
 	var ball_instance: Ball = ball.instantiate()
 	ball_instance.position = pos
-	add_child(ball_instance)
-	if start_moving:
-		ball_instance.start_moving()
-	elif start_timer:
-		ball_instance.start_timer.call_deferred("start")
+	ball_instance.enable_movement = start_moving
+	ball_instance.start_on_timer = start_timer
+	call_deferred("add_child", ball_instance)
 
 func load_level() -> void:
 	get_tree().call_group("balls", "queue_free")
@@ -98,7 +97,7 @@ func increase_life():
 	life_changed.emit()
 	
 func to_main_menu():
-	get_tree().change_scene_to_file("res://scenes/UI/main_menu.tscn")
+	get_tree().change_scene_to_packed(main_menu_scene)
 
 func _perform_upgrade(upgrade: BaseUpgrade, upgrade_node: Upgrade):
 	print("Upgrade picked. Calling perform upgrade from game")

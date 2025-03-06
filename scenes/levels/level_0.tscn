@@ -12,7 +12,7 @@ metadata/_edit_vertical_guides_ = [96.0]
 
 [node name="Block28" parent="." instance=ExtResource("1_vulij")]
 position = Vector2(288, 296)
-needs_update = false
+needs_update = true
 color_sprite = ExtResource("3_fsfh6")
 max_health = 1
 
